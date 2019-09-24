@@ -1,0 +1,8 @@
+Person:
+  name:'Amey'
+  lastName:'Rokde'
+---
+Fruits:
+  - Orange
+  - Apple
+  - Mango
