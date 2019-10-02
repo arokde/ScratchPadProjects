@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+autonumber
+
+User -> MobileUI : logins to the application
+MobileUI -> UIFrontEnd: login
+UIFrontEnd -> UserAndRBAC: login with credentials
+activate UserAndRBAC
+UserAndRBAC -> UserAndRBAC: Peform authentication and authorisation
+UserAndRBAC -> UIFrontEnd: User authorised
+UIFrontEnd -> MobileUI: Retrieve the product data
+MobileUI -> UIFrontEnd: add product to the cart
+UIFrontEnd -> OrderingService: Add new product to cart
+OrderingService -> ProductService: Get the product related details
+activate OrderService
+OrderingService -> OrderingSevice: Apply product discounts
+ProductService -> UIFrontEnd: Provide confirmation
+UIFrontEnd -> MobileUI: Display the product enrollment confirmation
+@enduml
